@@ -57,7 +57,12 @@ nextstrain build .
 To run the pipeline for specific data provenance, variant classification and geo resolution (e.g. gisaid, nextstrain_clades and global only):
 
 ```bash
-nextstrain build . --configfile config/config.yaml --config data_provenances=gisaid variant_classification=nextstrain_clades geo_resolutions=global
+nextstrain build . --configfile config/config.yaml --config data_provenances=gisaid variant_classifications=nextstrain_clades geo_resolutions=global
+```
+To run the pipeline for US states only using GISAID data:
+
+```bash
+nextstrain build . --configfile config/config.yaml --config data_provenances=gisaid geo_resolutions=usa
 ```
 
 ### Optional uploads
@@ -103,6 +108,13 @@ As of 2023-04-04, the config for the automated pipeline is set to only include d
 - locations that have at least 500 sequences in the last 30 days
     - excluding locations specifically listed in `defaults/global_excluded_locations.txt`
 - clades that have at least 5000 sequences in the last 150 days
+
+As of 2023-11-17, the config for the automated pipeline for US states is set to only include data from: 
+- the past 150 days
+    - excluding sequences from the last 12 days since they may be overly enriched for variants
+- locations that have at least 50 sequences in the last 60 days (Amanda: note I'm being very permissive right now to try to visualize all states)
+    - excluding locations specifically listed in `defaults/usa_excluded_locations.txt`
+- clades that have at least 1000 sequences in the last 150 days
 
 ### Model configurations
 
