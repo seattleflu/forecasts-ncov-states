@@ -7,6 +7,7 @@ variant_classifications:
   - pango_lineages
 geo_resolutions:
   - global
+  - usa
 
 # Params for the prepare data scripts
 # Define params for each data_provenance / variant_classification / geo_resolution combination
@@ -22,6 +23,14 @@ prepare_data:
         prune_seq_days: 12
         clade_min_seq: 5000
         clade_min_seq_days: 150
+      usa:
+        included_days: 150
+        location_min_seq: 50
+        location_min_seq_days: 60
+        excluded_locations: "defaults/usa_excluded_locations.txt"
+        prune_seq_days: 12
+        clade_min_seq: 1000
+        clade_min_seq_days: 150
     pango_lineages:
       global:
         included_days: 150
@@ -31,6 +40,15 @@ prepare_data:
         prune_seq_days: 12
         clade_min_seq: 1
         clade_min_seq_days: 150
+        collapse_threshold: 350
+      usa:
+        included_days: 150
+        location_min_seq: 50
+        location_min_seq_days: 100
+        excluded_locations: "defaults/usa_excluded_locations.txt"
+        prune_seq_days: 12
+        clade_min_seq: 1
+        clade_min_seq_days: 100
         collapse_threshold: 350
   open:
     nextstrain_clades:
@@ -42,12 +60,29 @@ prepare_data:
         prune_seq_days: 12
         clade_min_seq: 5000
         clade_min_seq_days: 150
+      usa:
+        included_days: 150
+        location_min_seq: 100
+        location_min_seq_days: 30
+        excluded_locations: "defaults/usa_excluded_locations.txt"
+        prune_seq_days: 12
+        clade_min_seq: 500
+        clade_min_seq_days: 150
     pango_lineages:
       global:
         included_days: 150
         location_min_seq: 300
         location_min_seq_days: 30
         excluded_locations: "defaults/global_excluded_locations.txt"
+        prune_seq_days: 12
+        clade_min_seq: 1
+        clade_min_seq_days: 150
+        collapse_threshold: 350
+      usa:
+        included_days: 150
+        location_min_seq: 300
+        location_min_seq_days: 30
+        excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 1
         clade_min_seq_days: 150
@@ -59,15 +94,23 @@ models:
     nextstrain_clades:
       global:
         pivot: "23A"
+      usa:
+        pivot: "23A"
     pango_lineages:
       global:
+        pivot: "XBB.1.5"
+      usa:
         pivot: "XBB.1.5"
   open:
     nextstrain_clades:
       global:
         pivot: "23A"
+      usa:
+        pivot: "23A"
     pango_lineages:
       global:
+        pivot: "XBB.1.5"
+      usa:
         pivot: "XBB.1.5"
 
 # Model configs
