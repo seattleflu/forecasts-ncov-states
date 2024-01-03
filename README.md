@@ -109,10 +109,10 @@ As of 2023-04-04, the config for the automated pipeline is set to only include d
     - excluding locations specifically listed in `defaults/global_excluded_locations.txt`
 - clades that have at least 5000 sequences in the last 150 days
 
-As of 2023-11-17, the config for the automated pipeline for US states is set to only include data from: 
+As of 2023-12-28, the config for the automated pipeline for US states is set to only include data from: 
 - the past 150 days
     - excluding sequences from the last 12 days since they may be overly enriched for variants
-- locations that have at least 50 sequences in the last 60 days (Amanda: note I'm being very permissive right now to try to visualize all states)
+- locations that have at least 90 sequences in the last 45 days
     - excluding locations specifically listed in `defaults/usa_excluded_locations.txt`
 - clades that have at least 1000 sequences in the last 150 days
 
