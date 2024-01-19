@@ -1,10 +1,8 @@
 # Files created by the pipeline, which we want to keep out of git
 data/
 logs/
-#results/
+#results/ Amanda: adding back in for now until workflow for states is automated
 benchmarks/
-hierarchical.json
-pango_lineages/
 
 # Errors from tests
 *.err
@@ -41,3 +39,7 @@ Icon?
 ehthumbs.db
 Thumbs.db
 *~
+
+## large files 
+hierarchical.json
+pango_lineages/

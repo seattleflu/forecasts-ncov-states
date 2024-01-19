@@ -25,12 +25,12 @@ prepare_data:
         clade_min_seq_days: 150
       usa:
         included_days: 150
-        location_min_seq: 50
-        location_min_seq_days: 60
+        location_min_seq: 90
+        location_min_seq_days: 45
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
-        clade_min_seq: 1000
-        clade_min_seq_days: 150
+        clade_min_seq: 50
+        clade_min_seq_days: 100
     pango_lineages:
       global:
         included_days: 150
@@ -43,13 +43,13 @@ prepare_data:
         collapse_threshold: 350
       usa:
         included_days: 150
-        location_min_seq: 50
-        location_min_seq_days: 100
+        location_min_seq: 90
+        location_min_seq_days: 45
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 1
-        clade_min_seq_days: 100
-        collapse_threshold: 350
+        clade_min_seq_days: 150
+        collapse_threshold: 200
   open:
     nextstrain_clades:
       global:
@@ -62,7 +62,7 @@ prepare_data:
         clade_min_seq_days: 150
       usa:
         included_days: 150
-        location_min_seq: 100
+        location_min_seq: 80
         location_min_seq_days: 30
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
@@ -80,7 +80,7 @@ prepare_data:
         collapse_threshold: 350
       usa:
         included_days: 150
-        location_min_seq: 300
+        location_min_seq: 80
         location_min_seq_days: 30
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
