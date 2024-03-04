@@ -47,6 +47,12 @@ Or, if your JSONs are `results/clades.json` and `results/lineages.json` then the
 ```bash
 VITE_CLADES_PATH="clades.json" VITE_LINEAGES_PATH="lineages.json" npm run start:local
 ```
+Amanda: using the default file paths produced by the model-run pipeline for US states:
+```bash
+VITE_CLADES_PATH="gisaid/nextstrain_clades/usa/mlr/YYYY-MM-DD_results.json" \
+  VITE_LINEAGES_PATH="gisaid/pango_lineages/usa/mlr/YYYY-MM-DD_results.json" \
+  npm run start:local
+```
 
 ## Development mode
 
