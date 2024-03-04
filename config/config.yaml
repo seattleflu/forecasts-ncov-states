@@ -93,6 +93,7 @@ models:
   gisaid:
     nextstrain_clades:
       global:
+<<<<<<< HEAD
         pivot: "23A"
       usa:
         pivot: "23A"
@@ -112,6 +113,19 @@ models:
         pivot: "XBB.1.5"
       usa:
         pivot: "XBB.1.5"
+=======
+        pivot: "23I"
+    pango_lineages:
+      global:
+        pivot: "JN.1"
+  open:
+    nextstrain_clades:
+      global:
+        pivot: "23I"
+    pango_lineages:
+      global:
+        pivot: "JN.1"
+>>>>>>> 39a3f834385f8d4e6ab2c1f737a5a06992375f98
 
 # Model configs
 mlr_config: "config/mlr-config.yaml"
