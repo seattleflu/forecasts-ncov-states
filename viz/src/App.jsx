@@ -29,9 +29,9 @@ function App() {
       <div id="mainPanelsContainer">
         <h2>Clade frequencies over time</h2>
         <p>
-          Each line represents the estimated frequency of a particular clade through time.
-          The equivalent Pango lineage is given in parentheses, e.g. clade 23A (lineage XBB.1.5).
-          States with at least 90 sequences from samples collected in the previous 45 days are included.
+          Each line represents the estimated frequency of a particular clade through time. 
+          The equivalent Pango lineage is given in parentheses, e.g. clade 23A (lineage XBB.1.5). 
+          States with at least 90 sequences from samples collected in the previous 45 days are included. 
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="cladeFrequenciesPanel" class="panelDisplay"> {/* surrounding div(s) used for static-images.js script */}
