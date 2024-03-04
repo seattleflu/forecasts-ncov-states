@@ -40,17 +40,10 @@ function App() {
 
         <h2>Clade growth advantage</h2>
         <p>
-<<<<<<< HEAD
           These plots show the estimated growth advantage for given clades relative to clade 23A (lineage XBB.1.5). 
           A variant’s growth advantage describes how many more secondary infections it causes on average relative 
           to clade 23A. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" panel 
           shows pooled estimates of growth rates across different states.
-=======
-          These plots show the estimated growth advantage for given clades relative to clade
-          23I (lineage BA.2.86). This describes how many more secondary infections a variant causes
-          on average relative to clade 23I. Vertical bars show the 95% HPD. The "hierarchical" panel
-          shows pooled estimate of growth rates across different locations.
->>>>>>> 39a3f834385f8d4e6ab2c1f737a5a06992375f98
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="cladeGrowthAdvantagePanel" class="panelDisplay">
@@ -70,17 +63,10 @@ function App() {
 
         <h2>Lineage growth advantage</h2>
         <p>
-<<<<<<< HEAD
           These plots show the estimated growth advantage for given Pango lineages relative to lineage XBB.1.5. 
           A lineage’s growth advantage describes how many more secondary infections it causes on average relative 
           to lineage XBB.1.5. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" 
           panel shows pooled estimates of growth rates across different states. 
-=======
-          These plots show the estimated growth advantage for given Pango lineages relative to
-          lineage JN.1. This describes how many more secondary infections a variant causes
-          on average relative to lineage JN.1. Vertical bars show the 95% HPD.
-          The "hierarchical" panel shows pooled estimate of growth rates across different locations.
->>>>>>> 39a3f834385f8d4e6ab2c1f737a5a06992375f98
           Results last updated {mlrLineagesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="lineageGrowthAdvantagePanel" class="panelDisplay">
