@@ -29,9 +29,9 @@ function App() {
       <div id="mainPanelsContainer">
         <h2>Clade frequencies over time</h2>
         <p>
-          Each line represents the estimated frequency of a particular clade through time. 
-          The equivalent Pango lineage is given in parentheses, e.g. clade 23I (lineage BA.2.86). 
-          States with at least 90 sequences from samples collected in the previous 45 days are included. 
+          Each line represents the estimated frequency of a particular clade through time.
+          The equivalent Pango lineage is given in parentheses, e.g. clade 23I (lineage BA.2.86).
+          States with at least 90 sequences from samples collected in the previous 45 days are included.
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="cladeFrequenciesPanel" class="panelDisplay"> {/* surrounding div(s) used for static-images.js script */}
@@ -40,15 +40,9 @@ function App() {
 
         <h2>Clade growth advantage</h2>
         <p>
-<<<<<<< HEAD
-          These plots show the estimated growth advantage for given clades relative to clade 23I (lineage BA.2.86). 
-          A variant’s growth advantage describes how many more secondary infections it causes on average relative 
-          to clade 23I. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" panel 
-=======
           These plots show the estimated growth advantage for given clades relative to clade 23I (lineage BA.2.86).
           A variant’s growth advantage describes how many more secondary infections it causes on average relative
           to clade 23I. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" panel
->>>>>>> 00c6b4c02ebd12bbcb8c8bedf37a03d4be2e8276
           shows pooled estimates of growth rates across different states.
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
@@ -69,17 +63,10 @@ function App() {
 
         <h2>Lineage growth advantage</h2>
         <p>
-<<<<<<< HEAD
-          These plots show the estimated growth advantage for given Pango lineages relative to lineage JN.1. 
-          A lineage’s growth advantage describes how many more secondary infections it causes on average relative 
-          to lineage JN.1. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" 
-          panel shows pooled estimates of growth rates across different states. 
-=======
           These plots show the estimated growth advantage for given Pango lineages relative to lineage JN.1.
           A lineage’s growth advantage describes how many more secondary infections it causes on average relative
           to lineage JN.1. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical"
           panel shows pooled estimates of growth rates across different states.
->>>>>>> 00c6b4c02ebd12bbcb8c8bedf37a03d4be2e8276
           Results last updated {mlrLineagesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="lineageGrowthAdvantagePanel" class="panelDisplay">
