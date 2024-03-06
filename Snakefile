@@ -69,6 +69,14 @@ def _get_all_input(w):
             model=models_to_run,
             date=run_date
         ))
+        all_input.extend(expand(
+            "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_washington.json",
+            data_provenance=data_provenances,
+            variant_classification=variant_classifications,
+            geo_resolution=geo_resolutions,
+            model=models_to_run,
+            date=run_date
+        ))
         if config.get("s3_dst"):
             all_input.extend(expand(
                 [
@@ -88,9 +96,9 @@ def _get_all_input(w):
 rule all:
     input: _get_all_input
 
-
 include: "workflow/snakemake_rules/prepare_data.smk"
 include: "workflow/snakemake_rules/models.smk"
+include: "workflow/snakemake_rules/extract_washington.smk"
 
 if config.get("send_slack_notifications"):
     include: "workflow/snakemake_rules/slack_notifications.smk"
