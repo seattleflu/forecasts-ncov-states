@@ -1,0 +1,4 @@
+# Optional configs used by the SFA team
+
+#sfa_s3_bucket: "bbi-sfa-covidforecasting-dashboard-ui"
+sfa_s3_bucket: "bbi-sfa-nextstrain-work"
