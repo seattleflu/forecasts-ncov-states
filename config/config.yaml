@@ -180,3 +180,9 @@ clade_definitions:
     display_name: "other"
     defining_lineage: False
     color: '#777777'
+
+# param for sending forecast output to public s3 bucket
+# if true, will send to public s3 bucket,
+# and the website will automatically be updated.
+# the s3 bucket is configured as an environment variable.
+send_sfa_forecast_to_s3: True

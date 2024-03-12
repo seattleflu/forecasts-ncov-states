@@ -31,7 +31,7 @@ rule upload_zip_files_to_s3:
     output:
         s3_upload_complete = touch("results/{data_provenance}/{variant_classification}/usa/{model}/{date}_s3_upload.done")
     params:
-        s3_bucket = config.get("sfa_s3_bucket"),
+        s3_bucket = os.environ["sfa_s3_bucket"],
         us_s3_key = lambda w, input: _get_s3_key(w, input.us_results),
         wa_s3_key = lambda w, input: _get_s3_key(w, input.wa_results)
     shell:
