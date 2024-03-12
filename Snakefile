@@ -111,8 +111,11 @@ include: "workflow/snakemake_rules/prepare_data.smk"
 include: "workflow/snakemake_rules/models.smk"
 include: "workflow/snakemake_rules/extract_washington.smk"
 
-if config.get("sfa_s3_bucket"):
+if config.get("send_sfa_forecast_to_s3"):
     include: "workflow/snakemake_rules/upload_sfa_forecast.smk"
+
+# if config.get("sfa_s3_bucket"):
+#     include: "workflow/snakemake_rules/upload_sfa_forecast.smk"
 
 # if config.get("send_slack_notifications"):
 #     include: "workflow/snakemake_rules/slack_notifications.smk"
