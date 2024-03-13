@@ -78,7 +78,7 @@ def _get_all_input(w):
             date=run_date
         ))
 
-        if config.get("sfa_s3_bucket"):
+        if config.get("send_sfa_forecast_to_s3"):
             all_input.extend(expand(
                 "results/{data_provenance}/{variant_classification}/usa/{model}/{date}_s3_upload.done",
                 data_provenance=data_provenances,
