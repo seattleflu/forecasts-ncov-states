@@ -69,18 +69,37 @@ def _get_all_input(w):
             model=models_to_run,
             date=run_date
         ))
-        if config.get("s3_dst"):
+        all_input.extend(expand(
+            "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_washington.json",
+            data_provenance=data_provenances,
+            variant_classification=variant_classifications,
+            geo_resolution=geo_resolutions,
+            model=models_to_run,
+            date=run_date
+        ))
+
+        if config.get("send_sfa_forecast_to_s3"):
             all_input.extend(expand(
-                [
-                    "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_results_s3_upload.done",
-                    "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_latest_results_s3_upload.done"
-                ],
+                "results/{data_provenance}/{variant_classification}/usa/{model}/{date}_s3_upload.done",
                 data_provenance=data_provenances,
                 variant_classification=variant_classifications,
                 geo_resolution=geo_resolutions,
                 model=models_to_run,
                 date=run_date
             ))
+                
+        # if config.get("s3_dst"):
+        #     all_input.extend(expand(
+        #         [
+        #             "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_results_s3_upload.done",
+        #             "results/{data_provenance}/{variant_classification}/{geo_resolution}/{model}/{date}_latest_results_s3_upload.done"
+        #         ],
+        #         data_provenance=data_provenances,
+        #         variant_classification=variant_classifications,
+        #         geo_resolution=geo_resolutions,
+        #         model=models_to_run,
+        #         date=run_date
+        #     ))
 
     return all_input
 
@@ -88,12 +107,18 @@ def _get_all_input(w):
 rule all:
     input: _get_all_input
 
-
 include: "workflow/snakemake_rules/prepare_data.smk"
 include: "workflow/snakemake_rules/models.smk"
+include: "workflow/snakemake_rules/extract_washington.smk"
 
-if config.get("send_slack_notifications"):
-    include: "workflow/snakemake_rules/slack_notifications.smk"
+if config.get("send_sfa_forecast_to_s3"):
+    include: "workflow/snakemake_rules/upload_sfa_forecast.smk"
 
-if config.get("s3_dst"):
-    include: "workflow/snakemake_rules/upload.smk"
+# if config.get("sfa_s3_bucket"):
+#     include: "workflow/snakemake_rules/upload_sfa_forecast.smk"
+
+# if config.get("send_slack_notifications"):
+#     include: "workflow/snakemake_rules/slack_notifications.smk"
+
+# if config.get("s3_dst"):
+#     include: "workflow/snakemake_rules/upload.smk"
