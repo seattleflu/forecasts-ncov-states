@@ -31,7 +31,7 @@ function App() {
         <p>
           Each line represents the estimated frequency of a particular clade through time.
           The equivalent Pango lineage is given in parentheses, e.g. clade 23I (lineage BA.2.86).
-          States with at least 90 sequences from samples collected in the previous 45 days are included.
+          States with at least 90 sequences from samples collected in the previous 60 days are included.
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="cladeFrequenciesPanel" class="panelDisplay"> {/* surrounding div(s) used for static-images.js script */}
@@ -54,7 +54,7 @@ function App() {
         <p>
           Each line represents the estimated frequency of a particular Pango lineage through time. 
           Lineages with fewer than 200 observations are collapsed into the parental lineage. States with 
-          at least 90 sequences from samples collected in the previous 45 days are included. 
+          at least 90 sequences from samples collected in the previous 60 days are included. 
           Results last updated {mlrLineagesData?.modelData?.get('updated') || 'loading'}.
         </p>
         <div id="lineageFrequenciesPanel" class="panelDisplay">
