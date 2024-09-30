@@ -30,7 +30,7 @@ function App() {
         <h2>Clade frequencies over time</h2>
         <p>
           Each line represents the estimated frequency of a particular clade through time.
-          The equivalent Pango lineage is given in parentheses, e.g. clade 23I (lineage BA.2.86).
+          The equivalent Pango lineage is given in parentheses, e.g. clade 23A (lineage XBB.1.5).
           States with at least 90 sequences from samples collected in the previous 60 days are included.
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
