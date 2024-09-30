@@ -7,7 +7,6 @@ variant_classifications:
   - pango_lineages
 geo_resolutions:
   - global
-  - usa
 
 # Params for the prepare data scripts
 # Define params for each data_provenance / variant_classification / geo_resolution combination
@@ -23,14 +22,6 @@ prepare_data:
         prune_seq_days: 12
         clade_min_seq: 2000
         clade_min_seq_days: 150
-      usa:
-        included_days: 150
-        location_min_seq: 90
-        location_min_seq_days: 60
-        excluded_locations: "defaults/usa_excluded_locations.txt"
-        prune_seq_days: 12
-        clade_min_seq: 50
-        clade_min_seq_days: 100
     pango_lineages:
       global:
         included_days: 150
@@ -41,15 +32,6 @@ prepare_data:
         clade_min_seq: 1
         clade_min_seq_days: 150
         collapse_threshold: 350
-      usa:
-        included_days: 150
-        location_min_seq: 90
-        location_min_seq_days: 60
-        excluded_locations: "defaults/usa_excluded_locations.txt"
-        prune_seq_days: 12
-        clade_min_seq: 1
-        clade_min_seq_days: 150
-        collapse_threshold: 200
   open:
     nextstrain_clades:
       global:
@@ -60,29 +42,12 @@ prepare_data:
         prune_seq_days: 12
         clade_min_seq: 2000
         clade_min_seq_days: 150
-      usa:
-        included_days: 150
-        location_min_seq: 80
-        location_min_seq_days: 30
-        excluded_locations: "defaults/usa_excluded_locations.txt"
-        prune_seq_days: 12
-        clade_min_seq: 500
-        clade_min_seq_days: 150
     pango_lineages:
       global:
         included_days: 150
         location_min_seq: 150
         location_min_seq_days: 30
         excluded_locations: "defaults/global_excluded_locations.txt"
-        prune_seq_days: 12
-        clade_min_seq: 1
-        clade_min_seq_days: 150
-        collapse_threshold: 350
-      usa:
-        included_days: 150
-        location_min_seq: 80
-        location_min_seq_days: 30
-        excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 1
         clade_min_seq_days: 150
@@ -94,23 +59,15 @@ models:
     nextstrain_clades:
       global:
         pivot: "24A"
-      usa:
-        pivot: "24A"
     pango_lineages:
       global:
-        pivot: "JN.1"
-      usa:
         pivot: "JN.1"
   open:
     nextstrain_clades:
       global:
         pivot: "24A"
-      usa:
-        pivot: "24A"
     pango_lineages:
       global:
-        pivot: "JN.1"
-      usa:
         pivot: "JN.1"
 
 # Model configs
@@ -136,61 +93,27 @@ mlr_config: "config/mlr-config.yaml"
 # * Lineages which are not a descendant of a clade-defining lineage will be
 #   grouped as 'other'
 clade_definitions:
+  - clade: "24E"
+    display_name: "24E (KP.3.1.1)"
+    defining_lineage: "KP.3.1.1"
+    color: '#E68133'
+  - clade: "24D"
+    display_name: "24D (XDV.1)"
+    defining_lineage: "XDV.1"
+    color: '#CDB642'
   - clade: "24C"
     display_name: "24C (KP.3)"
     defining_lineage: "KP.3"
-    color: '#DC2F24'
+    color: '#94BD61'
   - clade: "24B"
     display_name: "24B (JN.1.11.1)"
     defining_lineage: "JN.1.11.1"
-    color: '#E4632E'
+    color: '#61AB9D'
   - clade: "24A"
     display_name: "24A (JN.1)"
     defining_lineage: "JN.1"
-    color: '#E69136'
-  - clade: "23I"
-    display_name: "23I (BA.2.86)"
-    defining_lineage: "BA.2.86"
-    color: '#D9AD3D'
-  - clade: "23H"
-    display_name: "23H (HK.3)"
-    defining_lineage: "HK.3"
-    color: '#C1BA47'
-  - clade: "23G"
-    display_name: "23G (XBB.1.5.70)"
-    defining_lineage: "XBB.1.5.70"
-    color: '#A2BE57'
-  - clade: "23F"
-    display_name: "23F (EG.5.1)"
-    defining_lineage: "EG.5.1"
-    color: '#83BA70'
-  - clade: "23E"
-    display_name: "23E (XBB.2.3)"
-    defining_lineage: "XBB.2.3"
-    color: '#69B091'
-  - clade: "23D"
-    display_name: "23D (XBB.1.9)"
-    defining_lineage: "XBB.1.9"
-    color: '#549DB2'
-  - clade: "23C"
-    display_name: "23C (CH.1.1)"
-    defining_lineage: "CH.1.1"
-    color: '#4580CA'
-  - clade: "23B"
-    display_name: "23B (XBB.1.16)"
-    defining_lineage: "XBB.1.16"
-    color: '#3E58CF'
-  - clade: "22F"
-    display_name: "22F (XBB)"
-    defining_lineage: "XBB"
-    color: '#462EB9'
+    color: '#4377CD'
   - clade: "other"
     display_name: "other"
     defining_lineage: False
     color: '#777777'
-
-# param for sending forecast output to public s3 bucket
-# if true, will send to public s3 bucket,
-# and the website will automatically be updated.
-# the s3 bucket is configured as an environment variable.
-send_sfa_forecast_to_s3: True
