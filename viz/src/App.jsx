@@ -1,18 +1,19 @@
 import { PanelDisplay, useModelData } from '@nextstrain/evofr-viz';
 import '@nextstrain/evofr-viz/dist/index.css';
 
-const customAddress = !!import.meta.env.VITE_DATA_HOST;
+const customAddress = !!import.meta.env.VITE_DATA_BASE_URL;
+
 const mlrCladesConfig = {
     modelName: "mlr_clades",
     modelUrl: customAddress ?
-      `${import.meta.env.VITE_DATA_HOST}/${import.meta.env.VITE_CLADES_PATH}` :
-      `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/nextstrain_clades/global/mlr/latest_results.json`,
+      `${import.meta.env.VITE_DATA_BASE_URL}/${import.meta.env.VITE_DATA_PREFIX}nextstrain_clades.json`
+      : `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/nextstrain_clades/global/mlr/latest_results.json`,
 }
 const mlrLineagesConfig = {
     modelName: "mlr_lineages",
     modelUrl: customAddress ?
-      `${import.meta.env.VITE_DATA_HOST}/${import.meta.env.VITE_LINEAGES_PATH}` :
-      `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/pango_lineages/global/mlr/latest_results.json`,
+      `${import.meta.env.VITE_DATA_BASE_URL}/${import.meta.env.VITE_DATA_PREFIX}pango_lineages.json`
+      : `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/pango_lineages/global/mlr/latest_results.json`,
 }
 
 function App() {
