@@ -39,3 +39,13 @@ rule upload_zip_files_to_s3:
         aws s3api put-object --bucket {params.s3_bucket} --key {params.us_s3_key} --content-encoding gzip --content-type application/json --body {input.us_results} && \
         aws s3api put-object --bucket {params.s3_bucket} --key {params.wa_s3_key} --content-encoding gzip --content-type application/json --body {input.wa_results}
         """
+
+rule cloudfront_invalidation:
+    input: "results/{data_provenance}/{variant_classification}/usa/{model}/{date}_s3_upload.done"
+    output: touch("results/{data_provenance}/{variant_classification}/usa/{model}/{date}_cloudfront_invalidation.done")
+    params:
+        cloudfront_id = os.environ["sfa_s3_bucket_cloudfront_id"]
+    shell:
+        """
+        aws cloudfront create-invalidation --distribution-id {params.cloudfront_id} --paths '/data/*'
+        """
