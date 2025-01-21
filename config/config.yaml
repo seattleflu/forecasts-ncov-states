@@ -7,6 +7,7 @@ variant_classifications:
   - pango_lineages
 geo_resolutions:
   - global
+  - usa
 
 # Params for the prepare data scripts
 # Define params for each data_provenance / variant_classification / geo_resolution combination
@@ -24,11 +25,11 @@ prepare_data:
       usa:
         included_days: 150
         location_min_seq: 90
-        location_min_seq_days: 60
+        location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 50
-        clade_min_seq_days: 100
+        clade_min_seq_days: 120
     pango_lineages:
       global:
         included_days: 150
@@ -41,11 +42,11 @@ prepare_data:
       usa:
         included_days: 150
         location_min_seq: 90
-        location_min_seq_days: 60
+        location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 1
-        clade_min_seq_days: 150
+        clade_min_seq_days: 120
         collapse_threshold: 200
   open:
     nextstrain_clades:
@@ -59,11 +60,11 @@ prepare_data:
       usa:
         included_days: 150
         location_min_seq: 80
-        location_min_seq_days: 30
+        location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 500
-        clade_min_seq_days: 150
+        clade_min_seq_days: 120
     pango_lineages:
       global:
         included_days: 150
@@ -76,11 +77,11 @@ prepare_data:
       usa:
         included_days: 150
         location_min_seq: 80
-        location_min_seq_days: 30
+        location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
         clade_min_seq: 1
-        clade_min_seq_days: 150
+        clade_min_seq_days: 120
         collapse_threshold: 350
 
 # Params for the model run scripts
@@ -89,15 +90,23 @@ models:
     nextstrain_clades:
       global:
         pivot: "24A"
+      usa:
+        pivot: "24A"
     pango_lineages:
       global:
+        pivot: "JN.1"
+      usa:
         pivot: "JN.1"
   open:
     nextstrain_clades:
       global:
         pivot: "24A"
+      usa:
+        pivot: "24A"
     pango_lineages:
       global:
+        pivot: "JN.1"
+      usa:
         pivot: "JN.1"
 
 # Model configs
@@ -163,3 +172,9 @@ clade_definitions:
     display_name: "other"
     defining_lineage: False
     color: '#777777'
+
+# param for sending forecast output to public s3 bucket
+# if true, will send to public s3 bucket,
+# and the website will automatically be updated.
+# the s3 bucket is configured as an environment variable.
+send_sfa_forecast_to_s3: True
