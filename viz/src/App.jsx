@@ -6,13 +6,13 @@ const mlrCladesConfig = {
     modelName: "mlr_clades",
     modelUrl: customAddress ?
       `${import.meta.env.VITE_DATA_HOST}/${import.meta.env.VITE_CLADES_PATH}` :
-      `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/nextstrain_clades/global/mlr/latest_results.json`,
+      `https://bbi-sfa-covidforecasting-dashboard-ui.s3.us-west-2.amazonaws.com/data/us_states/us_nextstrain_clades.json`
 }
 const mlrLineagesConfig = {
     modelName: "mlr_lineages",
     modelUrl: customAddress ?
       `${import.meta.env.VITE_DATA_HOST}/${import.meta.env.VITE_LINEAGES_PATH}` :
-      `https://nextstrain-data.s3.amazonaws.com/files/workflows/forecasts-ncov/gisaid/pango_lineages/global/mlr/latest_results.json`,
+      `https://bbi-sfa-covidforecasting-dashboard-ui.s3.us-west-2.amazonaws.com/data/us_states/us_pango_lineages.json`
 }
 
 function App() {
