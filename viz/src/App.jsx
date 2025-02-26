@@ -20,6 +20,10 @@ function App() {
   const mlrCladesData = useModelData(mlrCladesConfig);
   const mlrLineagesData = useModelData(mlrLineagesConfig);
 
+  const mlrCladesPivotRaw = mlrCladesData?.modelData?.get('pivot') || "loading";
+  const mlrCladesPivot = mlrCladesData?.modelData?.get('variantDisplayNames')?.get(mlrCladesPivotRaw) || mlrCladesPivotRaw;
+  const mlrLineagesPivot = mlrLineagesData?.modelData?.get('pivot') || "loading";
+
   const cladesLocationsFiltered = mlrCladesData?.modelData?.get('locations')?.filter((loc)=>loc!=='hierarchical') || [];
   const lineagesLocationsFiltered = mlrLineagesData?.modelData?.get('locations')?.filter((loc)=>loc!=='hierarchical') || [];
 
@@ -40,9 +44,9 @@ function App() {
 
         <h2>Clade growth advantage</h2>
         <p>
-          These plots show the estimated growth advantage for given clades relative to clade 24A (lineage JN.1). 
+          These plots show the estimated growth advantage for given clades relative to clade {mlrCladesPivot} (lineage {mlrLineagesPivot}). 
           A variant’s growth advantage describes how many more secondary infections it causes on average relative 
-          to clade 24A. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" panel 
+          to clade {mlrCladesPivot}. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" panel 
           shows pooled estimates of growth rates across different states.
           Results last updated {mlrCladesData?.modelData?.get('updated') || 'loading'}.
         </p>
@@ -63,9 +67,9 @@ function App() {
 
         <h2>Lineage growth advantage</h2>
         <p>
-          These plots show the estimated growth advantage for given Pango lineages relative to lineage JN.1. 
+          These plots show the estimated growth advantage for given Pango lineages relative to lineage {mlrLineagesPivot}. 
           A lineage’s growth advantage describes how many more secondary infections it causes on average relative 
-          to lineage JN.1. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" 
+          to lineage {mlrLineagesPivot}. Vertical bars show the 95% highest (posterior) density interval (HDI). The "hierarchical" 
           panel shows pooled estimates of growth rates across different states. 
           Results last updated {mlrLineagesData?.modelData?.get('updated') || 'loading'}.
         </p>
