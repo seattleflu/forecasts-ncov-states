@@ -24,7 +24,7 @@ prepare_data:
         clade_min_seq_days: 150
       usa:
         included_days: 150
-        location_min_seq: 90
+        location_min_seq: 45
         location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
@@ -41,7 +41,7 @@ prepare_data:
         collapse_threshold: 350
       usa:
         included_days: 150
-        location_min_seq: 90
+        location_min_seq: 45
         location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
@@ -59,7 +59,7 @@ prepare_data:
         clade_min_seq_days: 150
       usa:
         included_days: 150
-        location_min_seq: 80
+        location_min_seq: 40
         location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
@@ -76,7 +76,7 @@ prepare_data:
         collapse_threshold: 350
       usa:
         included_days: 150
-        location_min_seq: 80
+        location_min_seq: 40
         location_min_seq_days: 120
         excluded_locations: "defaults/usa_excluded_locations.txt"
         prune_seq_days: 12
